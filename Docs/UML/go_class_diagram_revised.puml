@@ -1,0 +1,70 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+package "Backend (Go)" {
+
+  interface Repository <<Interface>> {
+    + CreateProduct(product Product) error
+    + GetProduct(sku string) (Product, error)
+    + UpdateProduct(product Product) error
+    + DeleteProduct(sku string) error
+    + ListProducts() ([]Product, error)
+    + UpdateStock(sku string, quantityChange int) error
+  }
+
+  class SQLiteRepository <<Repository>> implements Repository {
+    - db *sql.DB
+    + CreateProduct(product Product) error
+    + GetProduct(sku string) (Product, error)
+    + UpdateProduct(product Product) error
+    + DeleteProduct(sku string) error
+    + ListProducts() ([]Product, error)
+    + UpdateStock(sku string, quantityChange int) error
+  }
+
+  class Service <<Service>> {
+    - repo Repository
+    + CreateProduct(product Product) error
+    + GetProduct(sku string) (Product, error)
+    + UpdateProduct(product Product) error
+    + DeleteProduct(sku string) error
+    + ListProducts() ([]Product, error)
+    + RegisterEntry(sku string, quantity int) error
+    + RegisterExit(sku string, quantity int) error
+  }
+
+  class Handler <<Handler>> {
+    - service Service
+    + CreateProductHandler(w http.ResponseWriter, r *http.Request)
+    + GetProductHandler(w http.ResponseWriter, r *http.Request)
+    + UpdateProductHandler(w http.ResponseWriter, r *http.Request)
+    + DeleteProductHandler(w http.ResponseWriter, r *http.Request)
+    + ListProductsHandler(w http.ResponseWriter, r *http.Request)
+    + RegisterEntryHandler(w http.ResponseWriter, r *http.Request)
+    + RegisterExitHandler(w http.ResponseWriter, r *http.Request)
+  }
+
+  class Product <<Entity>> {
+    + SKU string
+    + Name string
+    + Description string <<optional>>
+    + Unit string
+    + QuantityInStock int
+  }
+
+  class APIError <<DTO>> {
+    + Code int
+    + Message string
+  }
+
+  Handler --> Service
+  Service --> Repository
+  SQLiteRepository ..> Product : uses
+  Service ..> Product : uses
+  Handler ..> Product : uses
+  Handler ..> APIError : uses
+
+}
+
+@enduml

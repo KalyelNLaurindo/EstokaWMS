@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+actor "Usuário (Operador WMS)" as User
+
+rectangle "MiniWMS Simplificado" {
+  usecase "Gerenciar Produtos (CRUD)" as UC_CRUD
+  usecase "Registrar Entrada de Produto" as UC_Entrada
+  usecase "Registrar Saída de Produto" as UC_Saida
+  usecase "Consultar Estoque" as UC_Consulta
+  ' usecase "Autenticar Usuário" as UC_Auth (Opcional/Simplificado no MVP)
+}
+
+User -- UC_CRUD
+User -- UC_Entrada
+User -- UC_Saida
+User -- UC_Consulta
+' User -- UC_Auth
+
+@enduml

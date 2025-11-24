@@ -1,0 +1,141 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+package "Frontend (Flutter)" {
+
+  abstract class ViewModel <<ViewModel>> {
+    + isLoading bool
+    + errorMessage String?
+    + notifyListeners()
+  }
+
+  class ProductListViewModel extends ViewModel {
+    - _repository ProductRepository
+    + products List<Product>
+    + loadProducts()
+    + deleteProduct(sku string)
+  }
+
+  class ProductDetailViewModel extends ViewModel {
+    - _repository ProductRepository
+    + product Product?
+    + loadProduct(sku string)
+  }
+
+  class ProductFormViewModel extends ViewModel {
+    - _repository ProductRepository
+    + product Product? // For editing
+    + skuController TextEditingController
+    + nameController TextEditingController
+    + descriptionController TextEditingController
+    + unitController TextEditingController
+    + quantityController TextEditingController
+    + saveProduct()
+  }
+
+  class StockViewModel extends ViewModel {
+    - _repository ProductRepository
+    + products List<Product>
+    + loadProducts()
+  }
+
+  class ProductEntryViewModel extends ViewModel {
+    - _repository ProductRepository
+    + selectedProduct Product?
+    + quantityController TextEditingController
+    + registerEntry()
+  }
+
+  class ProductExitViewModel extends ViewModel {
+    - _repository ProductRepository
+    + selectedProduct Product?
+    + quantityController TextEditingController
+    + registerExit()
+  }
+
+  abstract class ProductRepository <<Interface>> {
+    + Future<List<Product>> getProducts()
+    + Future<Product> getProduct(String sku)
+    + Future<void> createProduct(Product product)
+    + Future<void> updateProduct(Product product)
+    + Future<void> deleteProduct(String sku)
+    + Future<void> registerEntry(String sku, int quantity)
+    + Future<void> registerExit(String sku, int quantity)
+  }
+
+  class ApiProductRepository <<Repository>> implements ProductRepository {
+    - _apiClient ApiClient
+    + Future<List<Product>> getProducts()
+    + Future<Product> getProduct(String sku)
+    + Future<void> createProduct(Product product)
+    + Future<void> updateProduct(Product product)
+    + Future<void> deleteProduct(String sku)
+    + Future<void> registerEntry(String sku, int quantity)
+    + Future<void> registerExit(String sku, int quantity)
+  }
+
+  class ApiClient <<Service>> {
+    - _httpClient http.Client
+    - _baseUrl String
+    + Future<dynamic> get(String endpoint)
+    + Future<dynamic> post(String endpoint, dynamic data)
+    + Future<dynamic> put(String endpoint, dynamic data)
+    + Future<dynamic> delete(String endpoint)
+  }
+
+  class Product <<Entity>> {
+    + sku String
+    + name String
+    + description String?
+    + unit String
+    + quantityInStock int
+  }
+
+  ' Widgets (Views) - Simplified representation
+  class ProductListView <<View>> {
+    - viewModel ProductListViewModel
+  }
+  class ProductDetailView <<View>> {
+    - viewModel ProductDetailViewModel
+  }
+  class ProductFormView <<View>> {
+    - viewModel ProductFormViewModel
+  }
+  class StockView <<View>> {
+    - viewModel StockViewModel
+  }
+   class ProductEntryView <<View>> {
+    - viewModel ProductEntryViewModel
+  }
+   class ProductExitView <<View>> {
+    - viewModel ProductExitViewModel
+  }
+
+  ' Dependencies
+  ProductListView --> ProductListViewModel
+  ProductDetailView --> ProductDetailViewModel
+  ProductFormView --> ProductFormViewModel
+  StockView --> StockViewModel
+  ProductEntryView --> ProductEntryViewModel
+  ProductExitView --> ProductExitViewModel
+
+  ProductListViewModel --> ProductRepository
+  ProductDetailViewModel --> ProductRepository
+  ProductFormViewModel --> ProductRepository
+  StockViewModel --> ProductRepository
+  ProductEntryViewModel --> ProductRepository
+  ProductExitViewModel --> ProductRepository
+
+  ApiProductRepository --> ApiClient
+  ApiProductRepository ..> Product : uses
+  ProductListViewModel ..> Product : uses
+  ProductDetailViewModel ..> Product : uses
+  ProductFormViewModel ..> Product : uses
+  StockViewModel ..> Product : uses
+  ProductEntryViewModel ..> Product : uses
+  ProductExitViewModel ..> Product : uses
+
+}
+
+@enduml

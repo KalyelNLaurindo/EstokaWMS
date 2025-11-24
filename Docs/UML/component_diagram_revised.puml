@@ -1,0 +1,15 @@
+@startuml
+
+skinparam componentStyle uml2
+
+component "FlutterApp (Frontend)" as App <<Application>>
+component "GoBackendAPI (Backend)" as API <<Application>>
+component "SQLiteDatabase" as DB <<Database>>
+
+interface "REST API" as RestInterface
+
+App -right-> RestInterface : Consumes
+API .left. RestInterface : Implements
+API -down-> DB : Reads/Writes
+
+@enduml

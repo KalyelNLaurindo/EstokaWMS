@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="370px" preserveAspectRatio="none" style="width:484px;height:370px;" version="1.1" viewBox="0 0 484 370" width="484px" zoomAndPan="magnify"><defs><filter height="300%" id="fcmlq5x8yg6zx" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[e54064e300454014796eab814127c8ee]
+cluster MiniWMS Simplificado--><rect fill="#FFFFFF" filter="url(#fcmlq5x8yg6zx)" height="335" style="stroke: #000000; stroke-width: 1.5;" width="254" x="219" y="24"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="168" x="262" y="38.9951">MiniWMS Simplificado</text><ellipse cx="345.9086" cy="83.0817" fill="#FEFECE" filter="url(#fcmlq5x8yg6zx)" rx="105.9086" ry="23.5817" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="189" x="251.4086" y="87.7302">Gerenciar Produtos (CRUD)</text><ellipse cx="345.9811" cy="166.0962" fill="#FEFECE" filter="url(#fcmlq5x8yg6zx)" rx="110.9811" ry="24.5962" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="200" x="245.9811" y="170.7447">Registrar Entrada de Produto</text><ellipse cx="346.1177" cy="249.1235" fill="#FEFECE" filter="url(#fcmlq5x8yg6zx)" rx="103.6177" ry="23.1235" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="184" x="254.1177" y="253.772">Registrar Saída de Produto</text><ellipse cx="345.8678" cy="325.1736" fill="#FEFECE" filter="url(#fcmlq5x8yg6zx)" rx="78.8678" ry="18.1736" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="128" x="281.8678" y="329.822">Consultar Estoque</text><!--MD5=[fee662a292a0353a69bd162820bae93b]
+entity User--><ellipse cx="90.5" cy="177" fill="#FEFECE" filter="url(#fcmlq5x8yg6zx)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.5;"/><path d="M90.5,185 L90.5,212 M77.5,193 L103.5,193 M90.5,212 L77.5,227 M90.5,212 L103.5,227 " fill="none" filter="url(#fcmlq5x8yg6zx)" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="169" x="6" y="245.4951">Usuário (Operador WMS)</text><!--MD5=[7f13aa920a7082bd9e02c2b957d1291d]
+link User to UC_CRUD--><path d="M141.63,167.44 C162.21,152.24 186.85,135.81 211,124 C230.67,114.38 253.07,106.46 273.85,100.23 " fill="none" id="User-UC_CRUD" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1b5c0b9f423c4103a2aabc48eea04847]
+link User to UC_Entrada--><path d="M175.21,194.13 C201.31,189.81 230.18,185.02 256.59,180.65 " fill="none" id="User-UC_Entrada" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7710ec3b1c8f5d407325849a01dea3f0]
+link User to UC_Saida--><path d="M175.21,221.54 C203.04,226.04 234.02,231.05 261.81,235.55 " fill="none" id="User-UC_Saida" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1d02338cbb919d88750259ac08052b0c]
+link User to UC_Consulta--><path d="M143.38,248.71 C163.6,263.05 187.52,278.26 211,289 C234.33,299.67 261.44,307.7 285.15,313.43 " fill="none" id="User-UC_Consulta" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9c3310bdc262a2db09dadd9c9ea32274]
+@startuml
+left to right direction
+
+actor "Usuário (Operador WMS)" as User
+
+rectangle "MiniWMS Simplificado" {
+  usecase "Gerenciar Produtos (CRUD)" as UC_CRUD
+  usecase "Registrar Entrada de Produto" as UC_Entrada
+  usecase "Registrar Saída de Produto" as UC_Saida
+  usecase "Consultar Estoque" as UC_Consulta
+}
+
+User - - UC_CRUD
+User - - UC_Entrada
+User - - UC_Saida
+User - - UC_Consulta
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 05:22:07 EST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.27+6-post-Ubuntu-0ubuntu122.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

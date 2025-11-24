@@ -1,0 +1,17 @@
+@startuml
+
+node "Dispositivo Móvel" as MobileDevice <<Device>> {
+  artifact "FlutterApp.apk" as App <<Artifact>>
+}
+
+node "Servidor" as Server <<Server>> {
+  artifact "GoBackendExecutable" as GoExec <<Artifact>>
+  database "mini_wms.db" as DB <<Database>> {
+    artifact "Dados do WMS" <<Data>>
+  }
+  GoExec -> DB : acessa
+}
+
+MobileDevice ..> Server : Comunicação via HTTP/REST
+
+@enduml

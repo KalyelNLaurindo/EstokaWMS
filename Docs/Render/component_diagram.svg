@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="221px" preserveAspectRatio="none" style="width:657px;height:221px;" version="1.1" viewBox="0 0 657 221" width="657px" zoomAndPan="magnify"><defs><filter height="300%" id="f1uq7iqh7rgsn7" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[6e8f311b0aa23032184ffba0ef926f91]
+entity App--><rect fill="#FEFECE" filter="url(#f1uq7iqh7rgsn7)" height="62.5938" style="stroke: #A80036; stroke-width: 1.5;" width="188" x="6" y="8"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="174" y="13"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="172" y="15"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="172" y="19"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="94" x="48" y="40.9951">«Application»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="148" x="21" y="57.292">FlutterApp (Frontend)</text><!--MD5=[645d8587175d8f7ad110cd370775931d]
+entity API--><rect fill="#FEFECE" filter="url(#f1uq7iqh7rgsn7)" height="62.5938" style="stroke: #A80036; stroke-width: 1.5;" width="217" x="429.5" y="8"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="626.5" y="13"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="624.5" y="15"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="624.5" y="19"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="94" x="486" y="40.9951">«Application»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="177" x="444.5" y="57.292">GoBackendAPI (Backend)</text><!--MD5=[f9ba5bf973e7832d2ce5ed59077b93f7]
+entity DB--><rect fill="#FEFECE" filter="url(#f1uq7iqh7rgsn7)" height="62.5938" style="stroke: #A80036; stroke-width: 1.5;" width="150" x="463" y="148"/><rect fill="#FEFECE" height="10" style="stroke: #A80036; stroke-width: 1.5;" width="15" x="593" y="153"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="591" y="155"/><rect fill="#FEFECE" height="2" style="stroke: #A80036; stroke-width: 1.5;" width="4" x="591" y="159"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="83" x="491.5" y="180.9951">«Database»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="110" x="478" y="197.292">SQLiteDatabase</text><!--MD5=[a714e2897c149ebc48a3cfb4f69f7e64]
+entity RestInterface--><ellipse cx="308" cy="39.5" fill="#FEFECE" filter="url(#f1uq7iqh7rgsn7)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="277" y="69.4951">REST API</text><!--MD5=[d1fca72805fb28829a6c938c7cbb3ea0]
+link App to RestInterface--><path d="M194.26,39.5 C232.74,39.5 273.02,39.5 293.77,39.5 " fill="none" id="App-&gt;RestInterface" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="298.84,39.5,289.84,35.5,293.84,39.5,289.84,43.5,298.84,39.5" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="68" x="212.5" y="32.5669">Consumes</text><!--MD5=[4043a7959c651903d074dbb2df08a33b]
+link RestInterface to API--><path d="M317.02,39.5 C336.28,39.5 383.46,39.5 429.3,39.5 " fill="none" id="RestInterface-API" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="76" x="335.25" y="32.5669">Implements</text><!--MD5=[b874c2a0ce20abc088b74c0c7c933d7a]
+link API to DB--><path d="M538,71.13 C538,92.3 538,120.54 538,142.74 " fill="none" id="API-&gt;DB" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="538,147.96,542,138.96,538,142.96,534,138.96,538,147.96" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="82" x="539" y="114.0669">Reads/Writes</text><!--MD5=[6523cf7ffe7135f1a44b834c4462ce6b]
+@startuml
+
+skinparam componentStyle uml2
+
+component "FlutterApp (Frontend)" as App <<Application>>
+component "GoBackendAPI (Backend)" as API <<Application>>
+component "SQLiteDatabase" as DB <<Database>>
+
+interface "REST API" as RestInterface
+
+App -right-> RestInterface : Consumes
+API .left. RestInterface : Implements
+API -down-> DB : Reads/Writes
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 05:22:07 EST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.27+6-post-Ubuntu-0ubuntu122.04
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>
